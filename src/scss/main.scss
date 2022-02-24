@@ -1,0 +1,269 @@
+/*
+==============================================
+CONTENT:	Project Name Here
+AUTHOR:		Your Name Here
+==============================================
+
+TABLE OF CONTENTS:
+
+0. Reset
+1. Main Layout
+2. Content
+
+==============================================
+*/
+
+/* 0. Reset ================================= */
+
+/* 
+If you want to add partials, use Sass Modules via @use:
+@use 'variables';
+
+Usage: partial-name.variable/mixin/function-name:
+background: variables.$primary-color;
+*/
+
+// font-family: 'Spartan', sans-serif;
+
+@use 'reset';
+@use 'mixins';
+
+/* 1. Main Layout ================================= */
+
+* {
+	box-sizing: border-box;
+}
+
+
+
+/* 2. Content ================================= */
+.header__hamburger{
+		display: none;
+		@include mixins.bp-small{
+			display: block;
+			margin-left: 30px;
+			position: absolute;
+			top: 68px;
+		}
+	}
+
+.header{
+	position: absolute;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin-top: 55px;
+	@include mixins.bp-small{
+			justify-content: center;
+
+	}
+
+	.header__img{
+		margin-right: 50px;
+		margin-left: 50px;
+		@include mixins.bp-small{
+			margin-left: 50px;
+		}
+	}
+	
+	.header__list--links{
+		display: flex;
+		justify-content: space-between;
+		font-family: 'Spartan', sans-serif;
+		font-weight: 700;
+		font-size: 12px;
+
+		li{
+			padding: 30px;
+		}
+		
+		@include mixins.bp-small{
+			display: none;
+		}
+		
+			a{
+				text-decoration: none;
+				color: white;
+			}
+			
+	}
+}
+
+.hero{
+	position: relative;
+	display: flex;
+
+	@include mixins.bp-small{
+		flex-direction: column;
+	}
+
+	@include mixins.bp-medium{
+		flex-direction: column;
+	}
+
+	@include mixins.bp-large{
+		flex-direction: row;
+	}
+
+
+	.hero__image{
+		z-index: -1;
+		top: 0%;
+
+		@include mixins.bp-small{
+			width: 100%;
+			height: 375px;
+		}
+
+		@include mixins.bp-medium{
+			width: 100%;
+		}
+
+		@include mixins.bp-large{
+			width: 80%;
+		}
+
+	}
+
+	.hero__content{
+		display: flex;
+		flex-direction: column ;
+		position: relative;
+
+		.hero__main{
+			font-family: 'Spartan', sans-serif;
+			font-weight: 600;
+			font-size: 40px;
+			padding:140px 110px 0px 60px ;
+			@include mixins.bp-small{
+				font-family: 'Spartan', sans-serif;
+				font-weight: 600;
+				font-size: 28px;
+				padding:80px 30px 0px 30px ;
+			}
+		}
+
+		.hero__main--content{
+			font-family: 'Spartan', sans-serif;
+			font-weight: 500;
+			font-size: 12px;
+			line-height: 20px;
+			padding: 10px 60px 65px 60px;
+
+
+			@include mixins.bp-small{
+				font-family: 'Spartan', sans-serif;
+				font-weight: 400;
+				font-size: 12px;
+				padding:10px 30px 0px 30px ;
+			}
+		}
+
+		.hero__main--link{
+			font-family: 'Spartan', sans-serif;
+			font-weight: 500;
+			font-size: 12px;
+			letter-spacing: 6px;
+			text-transform: uppercase;
+			text-decoration: none;
+			padding: 10px 60px 65px 60px;
+			color: black;
+
+			@include mixins.bp-small{
+				font-family: 'Spartan', sans-serif;
+				font-weight: 500;
+				font-size: 12px;
+				letter-spacing: 6px;
+				text-transform: uppercase;
+				text-decoration: none;
+				padding:80px 30px 0px 30px ;
+				padding-bottom: 70px;
+			}
+		}
+
+		.arrow-right{
+			transition: transform 500ms;
+		}
+		.arrow-right:hover{
+			transform:translate(50px , 0)
+		}
+
+		.hero__main--button{
+			width: 180px;
+
+				@include mixins.bp-small{
+					width: 112px;
+					order:-1;
+					position: absolute;
+					top: -55px;
+					right: 0px;
+					}
+				@include mixins.bp-medium{
+					order:-1;
+					position: absolute;
+					right: 0px;
+				}	
+				@include mixins.bp-large{
+					order: 4;
+					position: relative;
+				}
+			}
+		}
+
+	}
+
+
+
+footer{
+	display: flex;
+	@include mixins.bp-small{
+		flex-direction: column;
+	}
+	@include mixins.bp-medium{
+		flex-direction: column;
+	}
+	@include mixins.bp-large{
+		flex-direction: row;
+	}
+
+
+	.footer__text{
+
+		padding: 60px 50px 90px 50px;
+
+		@include mixins.bp-small{
+			padding: 65px 30px 85px 30px;
+		}
+		h2{
+			font-family: 'Spartan', sans-serif;
+			font-weight: 500;
+			font-size: 12px;
+			letter-spacing: 3px;
+			text-transform: uppercase;
+			padding-bottom: 15px;
+		}
+
+		p{
+			font-family: 'Spartan', sans-serif;
+			font-weight: 400;
+			font-size: 12px;
+			line-height:20px ;
+		}
+	}
+
+	.footer__left{
+		@include mixins.bp-small{
+			width: 100%;
+		}
+
+		@include mixins.bp-medium{
+			width: 100%;
+		}
+
+
+	}
+
+
+
+}
+
